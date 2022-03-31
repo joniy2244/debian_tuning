@@ -16,5 +16,5 @@
 
   - name: Установка программ для оптимизации системы
     apt:
-      pkg: {{pakages}}
+      pkg: "{{pakages}}"
       state: present
