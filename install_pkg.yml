@@ -18,5 +18,3 @@
     apt:
       pkg: {{pakages}}
       state: present
-      #
-      #
