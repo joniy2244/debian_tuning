@@ -1,20 +1,13 @@
-- name: Установка пакетов
-  hosts: all
-  become: yes
-
-  vars:
-    pakages:
-      - grc
-      - htop
-      - tree
-
+- hosts: servers
+  become: true
   tasks:
 
-  - name: Обновление списка дерево пакетов
-    apt: 
-      update_cache: yes
-
-  - name: Установка программ для оптимизации системы
-    apt:
-      pkg: "{{pakages}}"
-      state: present
+  - name: #Установка программ для оптимизации системы
+    ansible.builtin.package:
+      name:
+        - grc
+        - htop
+        - tree
+        - mc
+      state: latest
+      

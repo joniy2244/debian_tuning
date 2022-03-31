@@ -1,7 +1,5 @@
-- name: Обновление серверов
-  hosts: all
-  become: yes
-
+- hosts: servers
+  become: true
   tasks:
 
   - name: Update
