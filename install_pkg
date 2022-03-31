@@ -1,0 +1,20 @@
+- name: Установка пакетов
+  hosts: all
+  become: yes
+
+  vars:
+    pakages:
+      - grc
+      - htop
+      - tree
+
+  tasks:
+
+  - name: Обновление списка дерево пакетов
+    apt: 
+      update_cache: yes
+
+  - name: Установка программ для оптимизации системы
+    apt:
+      pkg: {{pakages}}
+      state: present
