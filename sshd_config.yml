@@ -1,0 +1,8 @@
+- name: Копирование конфигурационного файла
+  hosts: all
+  tasks:
+  - name: Замена конфиг файла
+    copy:
+      src: /root/debian_tuning/sshd_config
+      dest: /etc/ssh/sshd_config
+      
