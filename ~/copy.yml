@@ -1,0 +1,31 @@
+- hosts: servers
+  become: true
+  tasks:
+#  - name: Copy Cert File If Different
+#    copy:
+#      src: "{{ item }}"
+#      dest: /etc/ssl/dmosk
+#      remote_src: no
+#      mode: 0644
+#      owner: root
+#      group: root
+#    with_fileglob:
+#      - files/*
+
+  - name: Copy SSH config
+    copy:
+      src: /root/debian_tuning/sshd_config
+      dest: /etc/ssh/sshd_config
+      mode: 0644
+  
+  - name: Copy .bashrc config
+    copy:
+      src: /root/debian_tuning/.bashrc
+      dest: /root/.bashrc
+      mode: 0644
+
+  - name: Copy inputrc config
+    copy:
+      src: /root/debian_tuning/inputrc
+      dest: /etc/inputrc
+      mode: 0644
