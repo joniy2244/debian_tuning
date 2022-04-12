@@ -57,7 +57,7 @@ man() {
 
 # Развёрнутый синтаксис
 set_prompt () {
-    Last_Command=$? # Must come first!
+    Last_Command=$?
     Blue='\[\e[01;34m\]'
     White='\[\e[01;37m\]'
     Red='\[\e[01;31m\]'
@@ -66,24 +66,21 @@ set_prompt () {
     FancyX='\342\234\227'
     Checkmark='\342\234\223'
 
-    # Add a bright white exit status for the last command
+    # Добавить статус выполнения последней команды
     PS1="$White\$? "
-    # If it was successful, print a green check mark. Otherwise, print
-    # a red X.
+    # Если всё прошло успешно, то напечатать зелёную галочку, если нет то красный крестик
     if [[ $Last_Command == 0 ]]; then
         PS1+="$Green$Checkmark "
     else
         PS1+="$Red$FancyX "
     fi
-    # If root, just print the host in red. Otherwise, print the current user
-    # and host in green.
+    # Если root, просто напечатайте хост красным цветом. В противном случае напечатайте текущего пользователя и хост зеленым цветом.
     if [[ $EUID == 0 ]]; then
         PS1+="$Red\\h "
     else
         PS1+="$Green\\u@\\h "
     fi
-    # Print the working directory and prompt marker in blue, and reset
-    # the text color to the default.
+    # Распечатать рабочий каталог и маркер подсказки синим цветом и установите цвет текста по умолчанию.
     PS1+="$Blue\\w \\\$$Reset "
 }
 PROMPT_COMMAND='set_prompt'
