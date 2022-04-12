@@ -35,7 +35,7 @@ prompt_color='196'
 
 # Добавление цветов
 git config --global color.ui true
-alias ls='ls --color=auto'
+alias ll='ls -lah --color=auto'
 alias dmesg='dmesg --color=always'
 alias grep='grep --color=always'
 alias fgrep='fgrep --color=always'
