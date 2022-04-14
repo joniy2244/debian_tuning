@@ -1,16 +1,7 @@
 - hosts: servers
   become: true
+
   tasks:
-#  - name: Copy Cert File If Different
-#    copy:
-#      src: "{{ item }}"
-#      dest: /etc/ssl/dmosk
-#      remote_src: no
-#      mode: 0644
-#      owner: root
-#      group: root
-#    with_fileglob:
-#      - files/*
 
   - name: Copy SSH config
     copy:
