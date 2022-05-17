@@ -15,10 +15,11 @@ shopt -s cmdhist
 history | grep "foo"
 
 # Увеличиваем размер истории команд терминала
-HISTSIZE=10000
+export HISTSIZE=10000
+export HISTFILESIZE=10000
 
 # Не вносил в историю копии команд
-export HISTCONTROL=ignoredups
+export HISTCONTROL=ignoreboth:erasedups
 
 # Просматривать историю, нажимая стрелками влево или вправо
 bind '"e[A": history-search-backward'
